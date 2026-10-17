@@ -1,0 +1,45 @@
+{
+  "name": "darroo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Darroo content pipeline: collect, filter, verify, write and publish thematic WhatsApp channel content without n8n.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/jobs/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/jobs/server.js",
+    "run:channel": "tsx src/jobs/runChannel.ts",
+    "run:places": "tsx src/jobs/runPlaces.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^7.4.0",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "fast-xml-parser": "^4.5.0",
+    "fastify": "^4.28.1",
+    "node-cron": "^3.0.3",
+    "openai": "^4.63.0",
+    "pg": "^8.13.0",
+    "pino": "^9.4.0",
+    "undici": "^6.19.8",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/node-cron": "^3.0.11",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.24.2",
+    "pino-pretty": "^11.2.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}

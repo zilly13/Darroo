@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: darroo
+      POSTGRES_PASSWORD: darroo
+      POSTGRES_DB: darroo
+    ports:
+      - "5432:5432"
+    volumes:
+      - darroo_db_data:/var/lib/postgresql/data
+
+volumes:
+  darroo_db_data:
